@@ -1,87 +1,93 @@
 <!DOCTYPE html>
-<html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>താനൂർ ബ്ലോക്ക് കേരളോത്സവം LIVE</title>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>താനൂർ ബ്ലോക്ക് - ബാഡ്മിൻറൺ LIVE</title>
 <style>
-*{box-sizing:border-box}body{font-family:sans-serif;background:#0f172a;color:#fff;margin:0;padding:0;padding-bottom:190px;overflow-x:hidden}
-.topbar{position:sticky;top:0;z-index:10;background:#0f172a;padding:8px 10px}
-.card{background:#fff;color:#111;border-radius:16px;padding:12px;margin:8px 0 0 0;text-align:center;width:100%}
-.score{font-size:42px;font-weight:900;line-height:1}.team{font-size:15px;font-weight:800;line-height:1.2;word-break:break-word}
-.adminbar{position:fixed;bottom:0;left:0;right:0;background:#fff;color:#111;padding:10px;border-top:3px solid #16a34a;z-index:20;max-height:55vh;overflow:auto}
-input,select{width:100%;padding:10px;margin:5px 0;border-radius:10px;border:1px solid #ccc;font-size:13px}
-button{padding:11px;background:#16a34a;color:#fff;border:0;border-radius:10px;font-weight:700;width:100%;font-size:14px}
-.small{font-size:11px;color:#64748b}
-table{width:100%;border-collapse:collapse;background:#fff;color:#111;border-radius:14px;overflow:hidden;font-size:13px}
-th{background:#111;color:#fff;padding:8px 4px;font-size:12px}td{padding:8px 4px;text-align:center;border-bottom:1px solid #eee}
-td:first-child{text-align:left;font-weight:700}
-.teambox{flex:1;background:#f1f5f9;border-radius:12px;padding:8px;text-align:center}
-.minus{flex:1;background:#fff;color:#111;border:2px solid #ddd;padding:12px;font-size:18px;font-weight:900;border-radius:10px}
-.plus{flex:1;background:#2563eb;color:#fff;padding:12px;font-size:18px;font-weight:900;border-radius:10px}
-.plus2{background:#db2777}
-.sec{margin:12px;padding:0 2px}.sec h3{font-size:16px;margin:8px 0}
-.result{background:#fff;color:#111;border-radius:12px;padding:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px}
-.badge{background:#16a34a;color:#fff;padding:3px 8px;border-radius:20px;font-size:11px}
-</style></head><body>
-<div class="topbar">
-<div style="text-align:center;font-size:14px"><b>🏸 താനൂർ ബ്ലോക്ക് പഞ്ചായത്ത് കേരളോത്സവം</b> <span style="background:#dc2626;color:#fff;padding:2px 8px;border-radius:20px;font-size:11px" id="status">● LIVE</span></div>
-<div class="card">
-<div id="title" style="font-weight:800;font-size:14px">Final - Men's Singles</div>
-<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:6px">
-<div><div class="team" id="t1">കല്പകഞ്ചേരി</div><div class="score" id="s1">0</div><div style="font-size:12px" id="set1">Sets: 0</div></div>
-<div style="font-size:16px;color:#888">VS</div>
-<div><div class="team" id="t2">നിർമരുതൂർ</div><div class="score" id="s2">0</div><div style="font-size:12px" id="set2">Sets: 0</div></div>
-</div>
-<div id="com" style="color:#16a34a;font-weight:700;margin-top:6px;font-size:13px">Match Starting...</div>
-<div class="small">🟢 LIVE - Refresh വേണ്ട</div>
-</div>
-</div>
-<div class="sec"><h3>🏆 Points Table - 6 ടീമുകൾ</h3>
-<table><tr><th>ടീം</th><th>കളി</th><th>ജയം</th><th>തോൽവി</th><th>പോയിന്റ്</th></tr><tbody id="ptable"></tbody></table>
-</div>
-<div class="sec"><h3>📋 Results - കഴിഞ്ഞ മാച്ചുകൾ</h3><div id="results"></div></div>
-<div class="adminbar">
-<div id="loginBox">
-<div style="font-weight:800;font-size:14px">🔐 Admin Login</div>
-<div style="display:flex;gap:6px;margin-top:6px"><input id="pass" type="password" placeholder="Admin Password" style="flex:1"><button onclick="login()" style="width:90px;background:#111">Login</button></div>
-<div id="loginMsg" style="color:red;font-size:12px;margin-top:4px"></div>
-</div>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f0f7f0}
+header{background:#0a7a42;color:#fff;padding:18px;text-align:center;position:sticky;top:0;z-index:10}
+header h1{font-size:20px}
+.live-badge{background:#ff2222;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.tabs{display:flex;overflow-x:auto;background:#fff;padding:8px;gap:8px;position:sticky;top:76px;z-index:9}
+.tabs button{white-space:nowrap;border:2px solid #0a7a42;background:#fff;color:#0a7a42;padding:10px 13px;border-radius:20px;font-weight:bold;cursor:pointer}
+.tabs button.active{background:#0a7a42;color:#fff}
+.container{padding:12px;max-width:700px;margin:auto}
+.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card h2{font-size:17px;margin-bottom:10px;color:#0a7a42}
+.teams{display:flex;justify-content:space-between;align-items:center;text-align:center}
+.team{width:40%;font-weight:bold;font-size:16px}
+.score{font-size:48px;font-weight:bold;color:#0a7a42;margin:8px 0;text-align:center}
+.sets{font-size:14px;background:#e8f5e9;padding:8px;border-radius:8px;text-align:center}
+.status{margin-top:10px;color:#ff2222;font-weight:bold;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 6px;text-align:left;border-bottom:1px solid #eee}
+th{background:#0a7a42;color:#fff}
+.match{padding:10px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;font-size:14px}
+.admin-btn{display:block;width:100%;padding:14px;background:#111;color:#fff;border:none;border-radius:10px;font-size:16px;margin:15px 0;cursor:pointer}
+.winner{background:#fff3cd;border:2px dashed #ffb300;text-align:center;padding:14px;border-radius:14px;font-weight:bold;margin-bottom:14px}
+input,select{width:100%;padding:11px;margin:6px 0;border:1px solid #ccc;border-radius:8px;font-size:15px}
+.save{background:#0a7a42;color:#fff;border:none;padding:13px;border-radius:10px;width:100%;font-size:16px;font-weight:bold;cursor:pointer}
+#adminPanel{display:none}
+.note{font-size:12px;color:#666;text-align:center}
+</style>
+</head>
+<body>
+<header><h1>🏸 താനൂർ ബ്ലോക്ക് പഞ്ചായത്ത്</h1><p>കേരളോത്സവം - ബാഡ്മിൻറൺ ടൂർണമെന്റ്</p><p style="margin-top:8px"><span class="live-badge">● LIVE</span></p></header>
+<div class="tabs" id="tabs"></div>
+<div class="container">
+<div id="winnerBox"></div>
+<div class="card"><h2>🔴 LIVE SCORE - <span id="catTitle"></span></h2>
+<div class="teams"><div class="team" id="teamA">-</div><div>VS</div><div class="team" id="teamB">-</div></div>
+<div class="score" id="liveScore">0 - 0</div>
+<div class="sets" id="setScore"></div>
+<div class="status" id="matchStatus"></div></div>
+<div class="card"><h2>📊 Points Table - <span class="catName"></span></h2><table><thead><tr><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th></tr></thead><tbody id="pointsBody"></tbody></table></div>
+<div class="card"><h2>📅 Upcoming Matches</h2><div id="matchesList"></div></div>
+<button class="admin-btn" onclick="openAdmin()">🔐 Admin Login</button>
+<div class="card" id="adminPanel"><h2>Admin Panel</h2>
+<div id="loginBox"><input id="u" placeholder="Username - admin"><input id="p" type="password" placeholder="Password - 1234"><button class="save" onclick="login()">Login</button></div>
 <div id="controlBox" style="display:none">
-<div style="display:flex;gap:6px"><div class="teambox"><div style="font-weight:800;font-size:13px" id="b1">കല്പകഞ്ചേരി</div><div style="font-size:11px;color:#666">Team 1</div></div><button class="minus" onclick="changeScore(1,-1)">−1</button><button class="plus" onclick="changeScore(1,1)">+1</button></div>
-<div style="display:flex;gap:6px;margin-top:6px"><div class="teambox"><div style="font-weight:800;font-size:13px" id="b2">നിർമരുതൂർ</div><div style="font-size:11px;color:#666">Team 2</div></div><button class="minus" onclick="changeScore(2,-1)">−1</button><button class="plus plus2" onclick="changeScore(2,1)">+1</button></div>
-<button onclick="document.getElementById('more').style.display=document.getElementById('more').style.display=='none'?'block':'none'" style="background:#334155;margin-top:8px">⚙️ LIVE മാച്ച് + Points Table + Result മാറ്റൂ</button>
-<div id="more" style="display:none;margin-top:6px">
-<b>LIVE മാച്ച്</b>
-<input id="a_title" placeholder="മാച്ച് പേര് - ഉദാ: Final"><input id="a_t1" placeholder="Team 1 പേര്"><input id="a_t2" placeholder="Team 2 പേര്">
-<div style="display:flex;gap:6px"><input id="a_s1" type="number" placeholder="Score 1"><input id="a_s2" type="number" placeholder="Score 2"></div>
-<div style="display:flex;gap:6px"><input id="a_set1" type="number" placeholder="Sets 1"><input id="a_set2" type="number" placeholder="Sets 2"></div>
-<input id="a_com" placeholder="Commentary"><select id="a_status"><option>LIVE</option><option>BREAK</option><option>FINISHED</option></select>
-<button onclick="saveLive()">✅ LIVE Update</button><hr>
-<b>Points Table - 6 ടീം</b><div id="teamInputs"></div><button onclick="saveTable()" style="background:#2563eb">🏆 Points Table Update</button><hr>
-<b>Result ചേർക്കൂ</b><input id="r1" placeholder="Team 1 - ഉദാ: കല്പകഞ്ചേരി"><input id="r2" placeholder="Team 2 - ഉദാ: ഒഴൂർ"><input id="rscore" placeholder="Result - ഉദാ: 21-15, 21-18"><input id="rwinner" placeholder="Winner - ഉദാ: കല്പകഞ്ചേരി ജയിച്ചു"><button onclick="addResult()" style="background:#db2777">📋 Result ചേർക്കൂ</button><button onclick="clearResults()" style="background:#ef4444;margin-top:6px">🗑️ എല്ലാ Result-ഉം ഡിലീറ്റ് ചെയ്യൂ</button>
+<label>Category</label><select id="admCat" onchange="loadAdmin()"></select>
+<label>Team A</label><select id="admA"></select>
+<label>Team B</label><select id="admB"></select>
+<label>Score A</label><input id="admScoreA" type="number" value="0">
+<label>Score B</label><input id="admScoreB" type="number" value="0">
+<label>Set 1 (Ex: 21-18)</label><input id="admS1" placeholder="21-18">
+<label>Set 2</label><input id="admS2" placeholder="18-21">
+<label>Set 3</label><input id="admS3" placeholder="-">
+<label>Status</label><input id="admStatus" placeholder="Set 1 Live / Finished">
+<label>Winner Team</label><input id="admWinner" placeholder="Team Name">
+<button class="save" onclick="saveLive()">✅ Save Live Score</button>
+<p style="margin:12px 0 6px;font-weight:bold">Points Table Update</p>
+<label>Select Team</label><select id="admTeamPts" onchange="loadPts()"></select>
+<label>Played</label><input id="ptsP" type="number" value="0">
+<label>Won</label><input id="ptsW" type="number" value="0">
+<label>Lost</label><input id="ptsL" type="number" value="0">
+<label>Points</label><input id="ptsPts" type="number" value="0">
+<button class="save" style="background:#ff9800" onclick="savePoints()">💾 Save Points</button>
+</div></div>
+<p class="note">Live score കാണാൻ പേജ് Refresh ചെയ്യുക</p>
 </div>
-</div>
-</div>
-<script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getDatabase, ref, onValue, set, push} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-const app = initializeApp({databaseURL:"https://tanur-keralosav-default-rtdb.firebaseio.com"});
-const db = getDatabase(app); const liveRef = ref(db,"live"); const tableRef = ref(db,"points"); const resRef = ref(db,"results");
-let cur={}, tableData=[{name:"കല്പകഞ്ചേരി",p:0,w:0,l:0,pts:0},{name:"നിർമരുതൂർ",p:0,w:0,l:0,pts:0},{name:"ഒഴൂർ",p:0,w:0,l:0,pts:0},{name:"പൊന്മുണ്ടം",p:0,w:0,l:0,pts:0},{name:"താനാളൂർ",p:0,w:0,l:0,pts:0},{name:"ചെറിയമുണ്ടം",p:0,w:0,l:0,pts:0}];
-onValue(liveRef,(s)=>{let d=s.val(); if(!d) return; cur=d; document.getElementById('title').innerText=d.title||"Final"; document.getElementById('t1').innerText=d.t1||""; document.getElementById('t2').innerText=d.t2||""; document.getElementById('b1').innerText=d.t1||""; document.getElementById('b2').innerText=d.t2||""; document.getElementById('s1').innerText=d.s1??0; document.getElementById('s2').innerText=d.s2??0; document.getElementById('set1').innerText="Sets: "+(d.set1??0); document.getElementById('set2').innerText="Sets: "+(d.set2??0); document.getElementById('com').innerText=d.com||""; document.getElementById('status').innerText="● "+(d.status||"LIVE");});
-onValue(tableRef,(s)=>{let d=s.val(); if(d) tableData=d; renderTable(); buildInputs();});
-onValue(resRef,(s)=>{let d=s.val(); let el=document.getElementById('results'); el.innerHTML=""; if(!d){el.innerHTML="<div style='color:#94a3b8;font-size:13px;text-align:center'>ഇതുവരെ Result ഇല്ല</div>";return;} Object.values(d).reverse().forEach(r=>{el.innerHTML+=`<div class="result"><div><b>${r.t1} vs ${r.t2}</b><br><span style="color:#666">${r.score}</span></div><span class="badge">🏆 ${r.winner}</span></div>`;});});
-function renderTable(){let sorted=[...tableData].sort((a,b)=>b.pts-a.pts); document.getElementById('ptable').innerHTML=sorted.map((t,i)=>`<tr><td>${i==0?'🥇 ':i==1?'🥈 ':i==2?'🥉 ':''}${t.name}</td><td>${t.p}</td><td>${t.w}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`).join("");}
-function buildInputs(){document.getElementById('teamInputs').innerHTML=tableData.map((t,i)=>`<div style="background:#f1f5f9;padding:8px;border-radius:10px;margin:5px 0"><b>${t.name}</b><div style="display:flex;gap:4px"><input data-i="${i}" data-k="p" type="number" value="${t.p}" placeholder="കളി"><input data-i="${i}" data-k="w" type="number" value="${t.w}" placeholder="ജയം"><input data-i="${i}" data-k="l" type="number" value="${t.l}" placeholder="തോൽവി"><input data-i="${i}" data-k="pts" type="number" value="${t.pts}" placeholder="Pts"></div></div>`).join("");}
-// FIXED LOGIN - ഫോണിൽ ഫയലായി തുറന്നാലും വർക്ക് ചെയ്യും, crypto വേണ്ട
-window.login=()=>{
-let v=document.getElementById('pass').value.trim();
-let correct = "ta" + "nur" + "12" + "3";
-if(v===correct){document.getElementById('loginBox').style.display='none';document.getElementById('controlBox').style.display='block';buildInputs();}
-else{document.getElementById('loginMsg').innerText="❌ Wrong Password, വീണ്ടും ശ്രമിക്കൂ";}
-};
-window.saveLive=async()=>{let data={title:document.getElementById('a_title').value||cur.title||"Final",t1:document.getElementById('a_t1').value||cur.t1||"",t2:document.getElementById('a_t2').value||cur.t2||"",s1:document.getElementById('a_s1').value||cur.s1||0,s2:document.getElementById('a_s2').value||cur.s2||0,set1:document.getElementById('a_set1').value||cur.set1||0,set2:document.getElementById('a_set2').value||cur.set2||0,com:document.getElementById('a_com').value||cur.com||"",status:document.getElementById('a_status').value};await set(liveRef,data);alert("LIVE Updated");};
-window.changeScore=async(team,delta)=>{if(team==1){cur.s1=Math.max(0,Number(cur.s1||0)+delta);}else{cur.s2=Math.max(0,Number(cur.s2||0)+delta);}await set(liveRef,cur);};
-window.saveTable=async()=>{document.querySelectorAll('#teamInputs input').forEach(inp=>{let i=inp.dataset.i,k=inp.dataset.k;tableData[i][k]=Number(inp.value||0);});await set(tableRef,tableData);alert("Points Table Updated");};
-window.addResult=async()=>{let t1=document.getElementById('r1').value,t2=document.getElementById('r2').value,score=document.getElementById('rscore').value,winner=document.getElementById('rwinner').value;if(!t1||!t2) return alert("ടീം പേര് കൊടുക്കൂ");await push(resRef,{t1,t2,score,winner});alert("Result Added");};
-window.clearResults=async()=>{if(confirm("എല്ലാ Result ഉം കളയണോ?")) await set(resRef,null);};
-renderTable(); buildInputs();
-</script></body></html>
+<script>
+const TEAMS=["നിറമെരുതൂർ","പെരുമണ്ണ","പൊന്മുണ്ടം","താനാളൂർ","വളവന്നൂർ","ഒഴൂർ","ചെറിയമുണ്ടം"];
+const CATS=["Boys Doubles","Boys Singles","Girls Doubles","Girls Singles"];
+let current=0;
+let data=JSON.parse(localStorage.getItem("tanur_badminton_only")||"null");
+if(!data){data={};CATS.forEach(c=>{data[c]={live:{a:"താനാളൂർ",b:"പൊന്മുണ്ടം",sa:0,sb:0,s1:"-",s2:"-",s3:"-",status:"Match Not Started",winner:""},points:{},matches:[["നിറമെരുതൂർ","പെരുമണ്ണ"],["പൊന്മുണ്ടം","താനാളൂർ"],["വളവന്നൂർ","ഒഴൂർ"],["ചെറിയമുണ്ടം","നിറമെരുതൂർ"]]};TEAMS.forEach(t=>data[c].points[t]={p:0,w:0,l:0,pts:0});});save();}
+function save(){localStorage.setItem("tanur_badminton_only",JSON.stringify(data));}
+function renderTabs(){document.getElementById("tabs").innerHTML=CATS.map((c,i)=>`<button class="${i==current?'active':''}" onclick="setCat(${i})">${c}</button>`).join("");}
+function setCat(i){current=i;render();}
+function render(){renderTabs();let c=CATS[current],d=data[c];document.getElementById("catTitle").innerText=c;document.querySelectorAll(".catName").forEach(e=>e.innerText=c);document.getElementById("teamA").innerText=d.live.a;document.getElementById("teamB").innerText=d.live.b;document.getElementById("liveScore").innerText=d.live.sa+" - "+d.live.sb;document.getElementById("setScore").innerText=`Set 1 : ${d.live.s1} | Set 2 : ${d.live.s2} | Set 3 : ${d.live.s3}`;document.getElementById("matchStatus").innerText=d.live.status;document.getElementById("winnerBox").innerHTML=d.live.winner?`<div class="winner">🏆 Winner - ${c} : ${d.live.winner}</div>`:"";let sorted=TEAMS.map(t=>({name:t,...d.points[t]})).sort((a,b)=>b.pts-a.pts);document.getElementById("pointsBody").innerHTML=sorted.map(t=>`<tr><td>${t.name}</td><td>${t.p}</td><td>${t.w}</td><td>${t.l}</td><td><b>${t.pts}</b></td></tr>`).join("");document.getElementById("matchesList").innerHTML=d.matches.map(m=>`<div class="match"><span>${m[0]} vs ${m[1]}</span><span>Upcoming</span></div>`).join("");}
+function openAdmin(){document.getElementById("adminPanel").style.display="block";document.getElementById("adminPanel").scrollIntoView({behavior:"smooth"});}
+function login(){if(document.getElementById("u").value=="admin"&&document.getElementById("p").value=="1234"){document.getElementById("loginBox").style.display="none";document.getElementById("controlBox").style.display="block";document.getElementById("admCat").innerHTML=CATS.map(c=>`<option>${c}</option>`).join("");loadAdmin();alert("Login Success!");}else alert("Wrong Password");}
+function fillTeams(id){document.getElementById(id).innerHTML=TEAMS.map(t=>`<option>${t}</option>`).join("");}
+function loadAdmin(){let c=document.getElementById("admCat").value,d=data[c];fillTeams("admA");fillTeams("admB");fillTeams("admTeamPts");document.getElementById("admA").value=d.live.a;document.getElementById("admB").value=d.live.b;document.getElementById("admScoreA").value=d.live.sa;document.getElementById("admScoreB").value=d.live.sb;document.getElementById("admS1").value=d.live.s1;document.getElementById("admS2").value=d.live.s2;document.getElementById("admS3").value=d.live.s3;document.getElementById("admStatus").value=d.live.status;document.getElementById("admWinner").value=d.live.winner;loadPts();}
+function loadPts(){let c=document.getElementById("admCat").value,t=document.getElementById("admTeamPts").value,p=data[c].points[t];if(p){document.getElementById("ptsP").value=p.p;document.getElementById("ptsW").value=p.w;document.getElementById("ptsL").value=p.l;document.getElementById("ptsPts").value=p.pts;}}
+function saveLive(){let c=document.getElementById("admCat").value;data[c].live={a:document.getElementById("admA").value,b:document.getElementById("admB").value,sa:document.getElementById("admScoreA").value,sb:document.getElementById("admScoreB").value,s1:document.getElementById("admS1").value,s2:document.getElementById("admS2").value,s3:document.getElementById("admS3").value,status:document.getElementById("admStatus").value,winner:document.getElementById("admWinner").value};save();render();alert("Updated!");}
+function savePoints(){let c=document.getElementById("admCat").value,t=document.getElementById("admTeamPts").value;data[c].points[t]={p:+document.getElementById("ptsP").value,w:+document.getElementById("ptsW").value,l:+document.getElementById("ptsL").value,pts:+document.getElementById("ptsPts").value};save();render();alert("Points Updated!");}
+render();
+</script>
+</body>
+</html>
